@@ -1,0 +1,10 @@
+vbox:
+    gui: true
+    memory: 4096
+    cpus: 2
+    
+scripts:
+ - 7zip.ps1
+ - cmder.ps1
+ - devtools.ps1
+ - shortcuts.ps1

@@ -1,0 +1,27 @@
+require "yaml"
+user_settings = YAML.load_file "vagrant.yaml"
+
+Vagrant.configure(2) do |config|
+
+    box_settings = user_settings["box"] || {}
+    config.vm.box_url = box_settings["url"] || "file://zacsmith-t1650/public/webdev.box"
+    config.vm.box = box_settings["box"] || "webdev"
+    
+    vbox_settings = user_settings["vbox"] || {}
+    config.vm.provider :virtualbox do |vbox|
+        vbox.name = vbox_settings["name"] || "webdev"
+        vbox.gui = vbox_settings["gui"] || true
+        vbox.memory = vbox_settings["memory"] || 2048
+        vbox.cpus = vbox_settings["cpus"] || 1
+        vbox.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
+    end
+    
+    provision_scripts = ["dev-setup.ps1"]
+    provision_scripts += user_settings["scripts"] || []
+    
+    for i in provision_scripts do
+        config.vm.provision "shell" do |shell|
+            shell.path = i
+        end
+    end
+end

@@ -1,0 +1,40 @@
+{
+    "variables": {
+        "username": "dev",
+        "password": "dev"
+    },
+    "builders": [{
+        "type": "virtualbox-ovf",
+        "source_path": "output-virtualbox-iso/devbox.ova",        
+        "headless": false,
+        "boot_wait": "2m",
+        "vm_name": "webdev",
+        "communicator": "winrm",
+        "winrm_username": "{{user `username`}}",
+        "winrm_password": "{{user `password`}}",
+        "winrm_timeout": "3h",
+        "shutdown_timeout": "1h",
+        "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+        "guest_additions_mode": "disable",
+        "vboxmanage": [
+            [ "setextradata", "global", "GUI/SuppressMessages", "all" ]
+        ]
+    }],
+    "provisioners": [{  
+        "type": "powershell",
+        "scripts": [
+            ".\\scripts\\base\\win-updates.ps1",
+            ".\\scripts\\dev\\install.ps1",
+            ".\\scripts\\base\\win-updates.ps1",
+            ".\\scripts\\dev\\optimize-dotnet-framework.ps1"
+        ],
+        "elevated_user": "{{user `username`}}",
+        "elevated_password": "{{user `password`}}"
+    }],
+    "post-processors": [{
+        "type": "vagrant",
+        "keep_input_artifact": true,
+        "output": "webdev.box",
+        "vagrantfile_template": "vagrant.template"
+    }]
+}

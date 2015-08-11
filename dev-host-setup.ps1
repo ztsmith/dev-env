@@ -17,6 +17,8 @@ cinst vagrant -y
 
 vagrant plugin install vagrant-winnfsd
 
+#change vagrant home dir to D:\
+[Environment]::SetEnvironmentVariable("VAGRANT_HOME", "D:\VM\Vagrant", [System.EnvironmentVariableTarget]::Machine)
 
 # TODO
 # - install/update cmder (include aliases and init.bat)

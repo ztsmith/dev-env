@@ -1,0 +1,60 @@
+{
+    "builders": [{
+        "type": "virtualbox-iso",
+        "vm_name": "devbox",
+        "iso_url": "file:///d:/public/en_windows_server_2012_r2_vl_with_update_x64_dvd_6052766.iso",
+        "iso_checksum_type": "sha1",
+        "iso_checksum": "247EAEE5628850A41F0C51471656AAFB2492EA08",
+        "headless": false,
+        "boot_wait": "2m",
+        "communicator": "winrm",
+        "winrm_username": "dev",
+        "winrm_password": "dev",
+        "winrm_timeout": "3h",
+        "shutdown_timeout": "1h",
+        "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+        "guest_os_type": "Windows2012_64",
+        "guest_additions_mode": "attach",
+        "disk_size": 61440,
+        "format": "ova",
+        "floppy_files": [
+            "Autounattend.xml",
+            "scripts/base/init.bat",
+            "scripts/base/winrm.bat",
+            "scripts/base/quirks.bat",
+            "scripts/base/win-updates.ps1",
+            "scripts/base/oracle-cert.cer"
+        ],
+    "vboxmanage": [
+        [ "modifyvm", "{{.Name}}", "--memory", "2048" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
+        [ "modifyvm", "{{.Name}}", "--vram", "128" ],
+        [ "modifyvm", "{{.Name}}", "--accelerate3d", "on" ],
+        [ "modifyvm", "{{.Name}}", "--natpf1", "winrm,tcp,,5985,,5985" ],
+        [ "modifyvm", "{{.Name}}", "--clipboard", "bidirectional" ],
+        [ "modifyvm", "{{.Name}}", "--draganddrop", "bidirectional" ],
+        [ "setextradata", "global", "GUI/SuppressMessages", "all" ]
+    ]
+    }],
+    "provisioners": [
+    {
+        "type": "windows-shell",
+        "inline": [
+            "cmd /c certutil -addstore -f \"TrustedPublisher\" A:\\oracle-cert.cer",
+            "cmd /c E:/VBoxWindowsAdditions.exe /S"
+        ]
+	}, 
+    {
+        "type": "windows-shell",
+        "scripts": [
+            ".\\scripts\\base\\enable-rdp.bat",
+            ".\\scripts\\base\\chocolatey.bat",
+            ".\\scripts\\base\\compile-dotnet-assemblies.bat"
+        ]
+	}, 
+    {
+        "type": "powershell",
+        "script": ".\\scripts\\base\\disable-password-complexity.ps1"	  
+	}
+  ]
+}
