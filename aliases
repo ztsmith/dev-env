@@ -1,0 +1,13 @@
+e.=explorer .
+gl=git log --oneline --all --graph --decorate  $*
+ls=ls --color $*
+pwd=cd
+clear=cls
+vup=vagrant up
+vssh=vagrant ssh
+vhalt=vagrant halt
+vhaltf=vagrant halt --force
+vsus=vagrant suspend
+vres=vagrant resume
+vstat=vagrant status
+vload=vagrant reload
