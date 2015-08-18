@@ -6,15 +6,15 @@
 
 ########## Variables
 
-dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) # dotfiles directory
-olddir=~/dotfiles_backup            # old dotfiles backup directory
-files="bash_profile gitconfig"      # list of files/folders to symlink in homedir
+dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)   # dotfiles directory
+bakdir=~/dotfiles_backup                            # dotfiles backup directory
+files="bash_profile gitconfig"                      # list of files/folders to symlink in homedir
 
 ##########
 
-# create dotfiles_old in homedir
+# create dotfiles_backup in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
+mkdir -p $bakdir
 echo "...done"
 
 # change to the dotfiles directory
@@ -23,9 +23,9 @@ cd $dir
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_backup directory, then create symlinks
-echo "Moving any existing dotfiles from ~ to $olddir"
+echo "Moving any existing dotfiles from ~ to $bakdir"
 for file in $files; do
-    mv ~/.$file ~/dotfiles_old/
+    mv ~/.$file $bakdir/
     echo "creating symlink to $dir/$file at ~/.$file"
     ln -s $dir/.$file ~/.$file
 done
