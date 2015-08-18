@@ -18,6 +18,7 @@ brew install wget
 
 #install Google Chrome
 brew cask install google-chrome
+brew cask install slack
 
 # install dev tools
 brew install node
