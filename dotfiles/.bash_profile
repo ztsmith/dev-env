@@ -12,12 +12,20 @@ alias .....='cd ../../../..'
 alias grep='grep --color=auto'
 
 # git auto-completion
-if ! [ -f ~/.git-completion.bash ]; then
-  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+if ! [ -f ~/.git-completion.sh ]; then
+  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.sh
 fi
-. ~/.git-completion.bash
+. ~/.git-completion.sh
+
+# git prompt
+if ! [ -f ~/.git-prompt.sh ]; then
+  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+fi
+. ~/git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1=export PS1='\[\033[01;30m\]\w\[\033[35m\]$(__git_ps1 " %s") \[\033[01;30m\]$\[\033[00m\] '
 
-cd /code
+export VISUAL=nano
+export EDITOR="$VISUAL"
+export PATH="/usr/local/bin:$PATH"
