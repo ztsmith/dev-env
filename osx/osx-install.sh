@@ -21,9 +21,12 @@ brew cask install google-chrome
 brew cask install slack
 
 # install dev tools
+brew install git # (upgrades to latest)
 brew install node
 brew cask install atom
-brew install git # (upgrade to latest)
+brew cask install iterm2
+
+
 
 # generate ssh key and copy to clipboard
 ssh-keygen
