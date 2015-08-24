@@ -20,9 +20,14 @@ brew install wget
 brew cask install google-chrome
 brew cask install slack
 
-# install dev tools
+# install node (using version manager)
+brew install nvm
+source $(brew --prefix nvm)/nvm.sh
+nvm install 0.10.40
+echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.profile
+
+# install other dev tools
 brew install git # (upgrades to latest)
-brew install node
 brew cask install atom
 brew cask install iterm2
 
