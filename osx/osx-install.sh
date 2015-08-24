@@ -24,7 +24,8 @@ brew cask install slack
 brew install nvm
 source $(brew --prefix nvm)/nvm.sh
 nvm install 0.10.40
-echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.profile
+nvm alias default 0.10.40
+#echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.profile
 
 # install other dev tools
 brew install git # (upgrades to latest)

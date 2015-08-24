@@ -29,3 +29,7 @@ export PS1=export PS1='\[\033[01;30m\]\w\[\033[35m\]$(__git_ps1 " %s") \[\033[01
 export VISUAL=nano
 export EDITOR="$VISUAL"
 export PATH="/usr/local/bin:$PATH"
+
+if [ $(brew --prefix nvm)/nvm.sh ]; then
+  source $(brew --prefix nvm)/nvm.sh
+fi
