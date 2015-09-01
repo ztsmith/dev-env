@@ -23,9 +23,10 @@ brew cask install slack
 # install node (using version manager)
 brew install nvm
 source $(brew --prefix nvm)/nvm.sh
-nvm install 0.10.40
-nvm alias default 0.10.40
-#echo "source $(brew --prefix nvm)/nvm.sh" >> ~/.profile
+nvm install 0.12.7
+nvm alias default 0.12.7
+
+npm install -g node-inspector
 
 # install other dev tools
 brew install git # (upgrades to latest)
