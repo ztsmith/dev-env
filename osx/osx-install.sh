@@ -32,6 +32,7 @@ npm install -g node-inspector
 brew install git # (upgrades to latest)
 brew cask install atom
 brew cask install iterm2
+brew install homebrew/x11/meld
 
 
 
