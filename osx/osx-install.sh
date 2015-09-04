@@ -16,9 +16,9 @@ brew install brew-cask
 
 brew install wget
 
-#install Google Chrome
+#install browsers
 brew cask install google-chrome
-brew cask install slack
+brew cask install firefox
 
 # install node (using version manager)
 brew install nvm
@@ -35,7 +35,8 @@ brew cask install iterm2
 brew cask install java
 brew install homebrew/x11/meld
 
-
+# install utils
+brew cask install slack
 
 # generate ssh key and copy to clipboard
 ssh-keygen
