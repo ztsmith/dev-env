@@ -19,6 +19,7 @@ brew install wget
 #install browsers
 brew cask install google-chrome
 brew cask install firefox
+ln -s ~/Applications/Firefox.app /Applications/Firefox.app
 
 # install node (using version manager)
 brew install nvm

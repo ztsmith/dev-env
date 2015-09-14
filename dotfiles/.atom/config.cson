@@ -1,0 +1,20 @@
+"*":
+  "exception-reporting":
+    userId: "8860dc16-baf8-631c-7178-acd45a4f977e"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+    disabledPackages: [
+      "js-refactor"
+      "refactor"
+    ]
+  editor:
+    invisibles: {}
+    fontSize: 13
+  refactor:
+    highlightReference: false
+  react: {}
