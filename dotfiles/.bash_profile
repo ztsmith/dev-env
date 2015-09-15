@@ -21,7 +21,7 @@ fi
 if ! [ -f ~/.git-prompt.sh ]; then
   curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
-. ~/git-prompt.sh
+. ~/.git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1=export PS1='\[\033[01;30m\]\w\[\033[35m\]$(__git_ps1 " %s") \[\033[01;30m\]$\[\033[00m\] '
