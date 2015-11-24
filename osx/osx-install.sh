@@ -22,9 +22,9 @@ brew cask install firefox
 ln -s ~/Applications/Firefox.app /Applications/Firefox.app
 
 # install node (using version manager)
-brew install nvm
-source $(brew --prefix nvm)/nvm.sh
-nvm install 0.12.7
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+source $NVM_DIR/nvm.sh
+nvm install 4.2.2
 nvm alias default 0.12.7
 
 npm install -g node-inspector

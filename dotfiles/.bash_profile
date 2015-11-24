@@ -30,6 +30,5 @@ export VISUAL=nano
 export EDITOR="$VISUAL"
 export PATH="/usr/local/bin:$PATH"
 
-if [ $(brew --prefix nvm)/nvm.sh ]; then
-  source $(brew --prefix nvm)/nvm.sh
-fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
