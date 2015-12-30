@@ -39,6 +39,11 @@ brew install homebrew/x11/meld
 # install utils
 brew cask install slack
 
+# install virtualization
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install dockertoolbox
+
 # generate ssh key and copy to clipboard
 ssh-keygen
 pbcopy < ~/.ssh/id_rsa.pub

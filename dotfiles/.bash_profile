@@ -33,3 +33,5 @@ export PATH="/usr/local/bin:$PATH"
 if [ $(brew --prefix nvm)/nvm.sh ]; then
   source $(brew --prefix nvm)/nvm.sh
 fi
+
+export SBUX_NPM_TOKEN="8a6f9fa5-0b81-497f-84a0-1ea8f0866577"

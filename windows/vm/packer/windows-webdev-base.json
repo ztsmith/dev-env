@@ -5,7 +5,7 @@
     },
     "builders": [{
         "type": "virtualbox-ovf",
-        "source_path": "output-virtualbox-iso/devbox.ova",        
+        "source_path": "output-virtualbox-iso/devbox.ova",
         "headless": false,
         "boot_wait": "2m",
         "vm_name": "webdev",
@@ -20,13 +20,13 @@
             [ "setextradata", "global", "GUI/SuppressMessages", "all" ]
         ]
     }],
-    "provisioners": [{  
+    "provisioners": [{
         "type": "powershell",
         "scripts": [
-            ".\\scripts\\base\\win-updates.ps1",
-            ".\\scripts\\dev\\install.ps1",
-            ".\\scripts\\base\\win-updates.ps1",
-            ".\\scripts\\dev\\optimize-dotnet-framework.ps1"
+            "./scripts/base/win-updates.ps1",
+            "./scripts/dev/install.ps1",
+            "./scripts/base/win-updates.ps1",
+            "./scripts/dev/optimize-dotnet-framework.ps1"
         ],
         "elevated_user": "{{user `username`}}",
         "elevated_password": "{{user `password`}}"

@@ -2,9 +2,9 @@
     "builders": [{
         "type": "virtualbox-iso",
         "vm_name": "devbox",
-        "iso_url": "file:///d:/public/en_windows_server_2012_r2_vl_with_update_x64_dvd_6052766.iso",
+        "iso_url": "/users/zacsmith/Downloads/en_windows_server_2012_r2_with_update_x64_dvd_6052708.iso",
         "iso_checksum_type": "sha1",
-        "iso_checksum": "247EAEE5628850A41F0C51471656AAFB2492EA08",
+        "iso_checksum": "865494E969704BE1C4496D8614314361D025775E",
         "headless": false,
         "boot_wait": "2m",
         "communicator": "winrm",
@@ -43,18 +43,18 @@
             "cmd /c certutil -addstore -f \"TrustedPublisher\" A:\\oracle-cert.cer",
             "cmd /c E:/VBoxWindowsAdditions.exe /S"
         ]
-	}, 
+	},
     {
         "type": "windows-shell",
         "scripts": [
-            ".\\scripts\\base\\enable-rdp.bat",
-            ".\\scripts\\base\\chocolatey.bat",
-            ".\\scripts\\base\\compile-dotnet-assemblies.bat"
+            "./scripts/base/enable-rdp.bat",
+            "./scripts/base/chocolatey.bat",
+            "./scripts/base/compile-dotnet-assemblies.bat"
         ]
-	}, 
+	},
     {
         "type": "powershell",
-        "script": ".\\scripts\\base\\disable-password-complexity.ps1"	  
+        "script": "./scripts/base/disable-password-complexity.ps1"
 	}
   ]
 }

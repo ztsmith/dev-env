@@ -1,0 +1,14 @@
+vbox:
+  gui: true
+  memory: 1024
+  cpus: 2
+
+box:
+  name: windev
+  url: /users/zacsmith/code/dev-env/windows/vm/packer/webdev.box
+
+scripts:
+ - 7zip.ps1
+ - cmder.ps1
+ - devtools.ps1
+ - shortcuts.ps1
