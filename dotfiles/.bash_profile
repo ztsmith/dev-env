@@ -2,6 +2,9 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+# better file listing
+alias ll='ls -laF'
+
 # up 'n' folders
 alias ..='cd ..'
 alias ...='cd ../..'
