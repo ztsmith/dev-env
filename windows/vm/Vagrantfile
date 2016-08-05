@@ -4,7 +4,7 @@ user_settings = YAML.load_file "vagrant.yaml"
 Vagrant.configure(2) do |config|
 
     box_settings = user_settings["box"] || {}
-    config.vm.box_url = box_settings["url"] || "file://zacsmith-t1650/public/webdev.box"
+    config.vm.box_url = box_settings["url"] || "file://server/public/webdev.box"
     config.vm.box = box_settings["box"] || "webdev"
     
     vbox_settings = user_settings["vbox"] || {}
