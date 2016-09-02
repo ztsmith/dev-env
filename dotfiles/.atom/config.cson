@@ -1,20 +1,25 @@
 "*":
-  "exception-reporting":
-    userId: "8860dc16-baf8-631c-7178-acd45a4f977e"
-  welcome:
-    showOnStartup: false
   core:
+    disabledPackages: [
+      "js-refactor"
+      "refactor"
+      "language-babel"
+      "remote-edit"
+    ]
     themes: [
       "one-light-ui"
       "one-light-syntax"
     ]
-    disabledPackages: [
-      "js-refactor"
-      "refactor"
-    ]
   editor:
-    invisibles: {}
     fontSize: 13
+    invisibles: {}
+  "exception-reporting":
+    userId: "8860dc16-baf8-631c-7178-acd45a4f977e"
+  "language-babel": {}
+  react: {}
   refactor:
     highlightReference: false
-  react: {}
+  "remote-edit": {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
