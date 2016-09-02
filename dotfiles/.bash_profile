@@ -14,6 +14,9 @@ alias .....='cd ../../../..'
 # grep with color
 alias grep='grep --color=auto'
 
+# force npm cache
+alias npminstall='npm install --cache-min Infinity'
+
 # git auto-completion
 if ! [ -f ~/.git-completion.sh ]; then
   curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.sh

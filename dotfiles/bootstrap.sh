@@ -27,5 +27,8 @@ echo "Moving any existing dotfiles from ~ to $bakdir"
 for file in $files; do
     mv -f ~/$file $bakdir/
     echo "creating symlink to $dir/$file at ~/$file"
+    if [ -e ~/$file ]; then
+      rm -r ~/$file
+    fi
     ln -s $dir/$file ~/$file
 done
