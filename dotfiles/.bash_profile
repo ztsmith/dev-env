@@ -3,7 +3,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # better file listing
-alias ll='ls -laF'
+alias ll='ls -lAFh'
 
 # up 'n' folders
 alias ..='cd ..'
