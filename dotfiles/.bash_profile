@@ -3,13 +3,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # better file listing
-alias ll='ls -lAFh'
-
-# up 'n' folders
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
+alias ll='ls -laFh'
 
 # grep with color
 alias grep='grep --color=auto'
@@ -40,3 +34,9 @@ export PATH="/usr/local/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then source '~/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/~/google-cloud-sdk/completion.bash.inc' ]; then source '~/google-cloud-sdk/completion.bash.inc'; fi

@@ -8,7 +8,7 @@
 
 dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)   # dotfiles directory
 bakdir=~/dotfiles_backup                            # dotfiles backup directory
-files=".bash_profile .gitconfig .vagrant.d/Vagrantfile"              # list of files/folders to symlink in homedir
+files=".bash_profile .gitconfig"              # list of files/folders to symlink in homedir
 
 ##########
 
